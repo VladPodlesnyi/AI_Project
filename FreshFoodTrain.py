@@ -4,18 +4,18 @@ from azure.cognitiveservices.vision.customvision.training.models import ImageFil
 from msrest.authentication import ApiKeyCredentials
 from msrest.exceptions import HttpOperationError
 
-import os, time, uuid
+import os, time
 
-cv_endpoint = "https://northeurope.api.cognitive.microsoft.com/"
+endpoint = "https://northeurope.api.cognitive.microsoft.com/"
 training_key = "7e166980024f433193e7e27ea6f1baab"
 training_images = "FRUIT-16K"
 
 credentials = ApiKeyCredentials(in_headers={"training-key": training_key})
-trainer = CustomVisionTrainingClient(endpoint=cv_endpoint, credentials=credentials)
+trainer = CustomVisionTrainingClient(endpoint=endpoint, credentials=credentials)
 
 #Wyświetlamy listę wszystkich domenów, żeby zdecydować nad tym, jaki będzie pasował do naszych wymagań   
-for domain in trainer.get_domains():   
-   print(domain.id, "\t", domain.name)
+# for domain in trainer.get_domains():   
+#    print(domain.id, "\t", domain.name)
 
 project = trainer.create_project("FreshFoodDetection - v1","c151d5b5-dd07-472a-acc8-15d29dea8518")
 

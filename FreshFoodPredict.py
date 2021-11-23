@@ -4,5 +4,5 @@ from azure.cognitiveservices.vision.customvision.training.models import ImageFil
 from msrest.authentication import ApiKeyCredentials
 import os, time, uuid
 
-
+endpoint = "https://northeurope.api.cognitive.microsoft.com/"
 prediction_key = "bd34981d24d540378b74ddab1e87cd33"
