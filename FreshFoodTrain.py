@@ -28,15 +28,6 @@ for tagName in dir:
    with open(os.path.join(training_images,tagName,img), "rb") as image_contents:
     list_of_images.append(ImageFileCreateEntry(name=img, contents=image_contents.read(), tag_ids=[tag.id]))
     
-  
-
-
-# Create chunks of 64 images
-def chunks(l, n):
- 	for i in range(0, len(l), n):
- 		yield l[i:i + n]
-batchedImages = chunks(list_of_images, 64)
-
 # Upload the images in batches of 64 to the Custom Vision Service
 
 for i in range(0, len(list_of_images), 64):
